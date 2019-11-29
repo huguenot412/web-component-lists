@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Lists</title>
+    <link rel="stylesheet" href="css/base-styles.css">
+    <script src="components/list.js"></script>
+</head>
+<body>
+    <div class="lists-wrapper"></div>
+
+    <script>
+
+        const listsWrapper = document.querySelector('.lists-wrapper');
+   
+        async function initializeData() {
+            const response = await fetch('data.json')
+                .then((resp) => resp.json()) // Transform the data into json
+                .then(function(data) {
+                    populateLists(data);
+                });
+        }
+
+        function populateLists(data) {
+            data.lists.forEach(list => {
+                const newList = document.createElement('snow-list');
+                console.log(list.listItems);
+                newList.setAttribute('list-items', JSON.stringify(list.listItems));
+                newList.innerHTML = `<h2 slot="list-title">${list.title}</h2>`;
+                listsWrapper.appendChild(newList);
+            });
+        }
+
+        initializeData();
+
+    </script>
+    
+</body>
+</html>
