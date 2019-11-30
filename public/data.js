@@ -1,4 +1,4 @@
-{
+let data = {
    "lists" : [
        {
            "title": "Favoite Games of 2019",
@@ -56,3 +56,5 @@
         }
    ] 
 }
+
+export default data
