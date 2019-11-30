@@ -6,21 +6,31 @@ class List extends HTMLElement {
         this.shadowRoot.innerHTML = `
 
             <style>
+                @import "https://code.getmdl.io/1.3.0/material.indigo-pink.min.css";
+
                 .list {
                     display: flex;
-                    flex-direction: column;
                     flex: 0 0 300px;
                     width: 300px;
                     flex-wrap: wrap;
-                    border: solid 1px #333;
                     padding: 20px;
-                    margin: 0 10px 10px 10px;
+                    margin: 10px;
+                    height: calc(100% - 20px);
+                }
+
+                .list-inner {
+                    display: flex;
+                    flex-direction: column;  
                 }
             </style>
 
-            <div class="list">
-                <slot name="list-title" class="list__title">List Title</slot>
-                <ul class="list__items"></ul>
+            <div class="list mdl-card mdl-shadow--2dp">
+                <div class="list-inner">
+                    <div class="mdl-card__title">
+                        <slot name="list-title" class="list__title">List Title</slot>
+                    </div>
+                    <ul class="list__items mdl-list"></ul>
+                </div>
             </div>
         `
     }
@@ -31,6 +41,7 @@ class List extends HTMLElement {
         this._listItems.forEach(item => {
             let listItem = document.createElement('li');
             listItem.innerHTML = item.title;
+            listItem.classList.add('mdl-list__item');
             listItemsElement.appendChild(listItem);
         });
     }

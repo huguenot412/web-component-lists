@@ -32,7 +32,7 @@ let data = {
              "type": "television",
              "listItems": [
                  {
-                     "title": "The Lefovers",
+                     "title": "The Leftovers",
                      "rank": 1,
                      "description": "Created by Damon Lindelhof, The Leftovers depicts the aftermath of a mysterious phenomenon when two percent of the world's population vanishes",
                      "img-url": "",
@@ -96,7 +96,7 @@ function populateLists(lists) {
     lists.forEach(list => {
         const newList = document.createElement('snow-list');
         newList.setAttribute('list-items', JSON.stringify(list.listItems));
-        newList.innerHTML = `<h2 slot="list-title">${list.title}</h2>`;
+        newList.innerHTML = `<h2 slot="list-title" class="mdl-card__title-text">${list.title}</h2>`;
         listsWrapper.appendChild(newList);
     });
 }
