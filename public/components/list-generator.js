@@ -57,7 +57,7 @@ class ListGenerator extends HTMLElement {
 
                 .listNameValidation {
                     display: flex;
-                    align-items: center;
+                    align-items: flex-end;
                     opacity: 0;
                     bottom: -2px;
                     left: 0;
@@ -80,10 +80,10 @@ class ListGenerator extends HTMLElement {
 
                 .search-icon {
                     position: absolute;
-                    top: 2px;
+                    bottom: 2px;
                     right: 2px;
                     color: rgb(63,81,181);
-                    transition: .2s ease-in-out;
+                    transition: .2s;
                 }
 
                 .list-generator__search:hover .search-icon {
@@ -94,7 +94,7 @@ class ListGenerator extends HTMLElement {
 
             <div class="list-generator">
                 <div class="list-generator__search">
-                    <input id="Search" type="text" class="title-input__input mdl-textfield__input" placeholder="Search">
+                    <input id="Search" type="text" class="search__input mdl-textfield__input" placeholder="Search">
                     <i class="material-icons search-icon">search</i>
                 </div>
                 <div class="list-generator__buttons">

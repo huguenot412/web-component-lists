@@ -16,7 +16,7 @@ class List extends HTMLElement {
                     padding: 20px;
                     margin: 10px;
                     height: calc(100% - 20px);
-                    transition: .2s ease-in-out;
+                    transition: .2s;
                 }
 
                 .list:hover {
