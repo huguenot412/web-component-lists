@@ -16,6 +16,11 @@ class List extends HTMLElement {
                     padding: 20px;
                     margin: 10px;
                     height: calc(100% - 20px);
+                    transition: .2s ease-in-out;
+                }
+
+                .list:hover {
+                    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
                 }
 
                 .list-inner {
@@ -25,8 +30,8 @@ class List extends HTMLElement {
             </style>
 
             <div class="list mdl-card mdl-shadow--2dp">
-                <div class="list-inner">
-                    <div class="mdl-card__title">
+                <div class="list-inner mdl-card--border">
+                    <div class="mdl-card__title mdl-card--border">
                         <slot name="list-title" class="list__title">List Title</slot>
                     </div>
                     <ul class="list__items mdl-list"></ul>

@@ -1,7 +1,7 @@
 let data = {
     "lists" : [
         {
-            "title": "FavoriteGames of 2019",
+            "title": "Favorite Games of 2019",
             "type": "games",
             "listItems": [
                 {
@@ -28,7 +28,7 @@ let data = {
             ]
         },
         {
-             "title": "FavoriteTelevision Series of 2019",
+             "title": "Favorite Television Series of 2019",
              "type": "television",
              "listItems": [
                  {
@@ -41,7 +41,7 @@ let data = {
              ]
          },
          {
-             "title": "FavoriteBooks of 2019",
+             "title": "Favorite Books of 2019",
              "type": "books",
              "listItems": [
                  {
