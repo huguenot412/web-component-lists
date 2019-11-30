@@ -3,6 +3,41 @@ class ListGenerator extends HTMLElement {
         super();
         this.attachShadow({mode: 'open'});
         this.shadowRoot.innerHTML = `
+
+            <style>
+                .list-generator {
+                    display: flex;
+                    flex: 1 1 300px;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    max-width: 300px;
+                }
+
+                .title-input {
+                    display: flex;
+                    flex: 1 1 auto;
+                }
+
+                .list-items {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .list-generator__buttons {
+                    display: flex;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                }
+
+                .list-generator__button {
+                    padding: 2px 6px;
+                    margin: 10px 20px;
+                    border: 1px solid #333;
+                }
+
+            </style>
+
             <div class="list-generator">
                 <div class="title-input">
                     <label class="title-input__label">List Name: </label>
