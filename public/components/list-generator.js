@@ -7,13 +7,6 @@ class ListGenerator extends HTMLElement {
                 @import "https://code.getmdl.io/1.3.0/material.indigo-pink.min.css";
 
                 .list-generator {
-                    display: flex;
-                    flex: 1 1 300px;
-                    flex-direction: column;
-                    justify-content: flex-start;
-                    align-items: flex-start;
-                    max-width: 300px;
-                    margin: 0 40px 0 0;
                     padding: 20px;
                 }
 
@@ -47,8 +40,6 @@ class ListGenerator extends HTMLElement {
 
                 .list-generator__buttons {
                     display: flex;
-                    justify-content: center;
-                    flex-wrap: wrap;
                 }
 
                 .list-generator__button {

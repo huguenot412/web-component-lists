@@ -1,13 +1,18 @@
+* {
+    box-sizing: border-box;
+}
+
 .page-content {
-    display: flex;
-    flex-wrap: no-wrap;
-    flex: 1 1 auto;
+    display: grid;
+    grid-template-columns: 300px auto;
+    grid-column-gap: 20px;
+    height: 100%;
+    justify-content: stretch;
 }
 
 .lists-wrapper {
-    display: flex;
-    flex: 1 1 auto;
-    flex-wrap: wrap;
-    align-items: stretch;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     padding: 20px;
+    grid-column-gap: 20px;
 }
