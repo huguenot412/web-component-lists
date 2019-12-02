@@ -16,7 +16,6 @@ class List extends HTMLElement {
 
                 .list {
                     padding: 20px;
-                    margin: 10px;
                     transition: .2s;
                 }
 

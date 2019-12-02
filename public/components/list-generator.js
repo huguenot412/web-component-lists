@@ -89,7 +89,7 @@ class ListGenerator extends HTMLElement {
                     <i class="material-icons search-icon">search</i>
                 </div>
                 <div class="list-generator__buttons">
-                    <div class="list-generator__button list-generator__button--new-item mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-button--raised">Add new item</div>
+                    <div class="list-generator__button list-generator__button--new-item mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-button--raised">New item</div>
                     <div class="list-generator__button list-generator__button--submit-list mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent mdl-button--raised">Submit list</div>
                 </div>
                 <form action="#">
