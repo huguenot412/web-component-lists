@@ -40,6 +40,7 @@ class ListGenerator extends HTMLElement {
 
                 .list-generator__buttons {
                     display: flex;
+                    margin-bottom: 20px;
                 }
 
                 .list-generator__button {
@@ -93,7 +94,7 @@ class ListGenerator extends HTMLElement {
                     <div class="list-generator__button list-generator__button--submit-list mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent mdl-button--raised">Submit list</div>
                 </div>
                 <form action="#">
-                    <div class="title-input mdl-textfield mdl-js-textfield">
+                    <div class="title-input mdl-js-textfield">
                         <input id="ListNameLabel" type="text" class="title-input__input mdl-textfield__input" placeholder="Enter list name">
                         <!--<label for="ListNameLabel" class="title-input__label mdl-textfield__label">List Name: </label>-->
                         <div class="listNameValidation">
@@ -102,7 +103,7 @@ class ListGenerator extends HTMLElement {
                     </div>
                     <div class="list-items">
                         <p>Add list items:</p>
-                        <div class="mdl-js-textfield">
+                        <div>
                             <input class="list-items_input mdl-textfield__input" placeholder="Enter item name">
                         </div>  
                     </div>

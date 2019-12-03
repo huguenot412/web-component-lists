@@ -1,3 +1,5 @@
+// import { data as appData } from '../data';
+
 let data = {
     "lists" : [
         {
@@ -9,7 +11,7 @@ let data = {
                     "rank": 1,
                     "description": "From Software's latest entry into the 'SoulsBorne' franchise, set in a dark fantasy version of fuedal Japan",
                     "img-url": "",
-                    "comments": "I loved this game!"
+                    "comments": "I loved this game!" 
                 },
                 {
                     "title": "Jedi: Fallen Order",
@@ -19,7 +21,7 @@ let data = {
                     "comments": "Great lightsaber combat!"
                 },
                 {
-                    "title": "Fire Emblem Fates",
+                    "title": "Fire Emblem: Three Houses",
                     "rank": 3,
                     "description": "Latest entry into Fire Emblem Franchise on Nintendo Switch",
                     "img-url": "",
@@ -92,11 +94,15 @@ const listsWrapper = document.querySelector('.lists-wrapper');
 // }
 
 function populateLists(lists) {
-    listsWrapper.innerHTML = "";
+
+    let noResultsMessage = "Get started by adding a list.";
+
+    lists.length < 1 ? listsWrapper.innerHTML = `<h2>${noResultsMessage}</h2>` : listsWrapper.innerHTML = "";
+
     lists.forEach(list => {
         const newList = document.createElement('snow-list');
+        newList.setAttribute('list-title', list.title);
         newList.setAttribute('list-items', JSON.stringify(list.listItems));
-        newList.innerHTML = `<h2 slot="list-title" class="mdl-card__title-text">${list.title}</h2>`;
         listsWrapper.appendChild(newList);
     });
 }

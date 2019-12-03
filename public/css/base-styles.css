@@ -6,14 +6,24 @@
     display: grid;
     grid-template-columns: 300px auto;
     grid-column-gap: 20px;
-    height: 100%;
+    min-height: 100vh;
     justify-content: stretch;
 }
 
 .lists-wrapper {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-rows: repeat(auto-fit, min-content);
+    grid-auto-rows: min-content;
+    /* grid: repeat(auto-fill, minmax(300px, 1fr)) / auto-flow min-content; */
     padding: 20px;
     grid-column-gap: 20px;
     grid-row-gap: 20px;
+    align-items: stretch;
+}
+
+@media screen and (max-width: 700px) {
+    .page-content {
+        grid-template-columns: 1fr;
+    }
 }

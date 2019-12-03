@@ -15,6 +15,9 @@ class List extends HTMLElement {
                 }
 
                 .list {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
                     padding: 20px;
                     transition: .2s;
                 }
@@ -23,26 +26,78 @@ class List extends HTMLElement {
                     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
                 }
 
+                .list__item {
+                    display: flex;
+                    justify-content: space-between;
+                }
+
+                .list__item-title-text {
+                    margin-right: 20px;
+                }
+
             </style>
 
             <div class="list mdl-shadow--2dp">
-                <div class="mdl-card__title mdl-card--border">
-                    <slot name="list-title" class="list__title">List Title</slot>
+                <div>
+                    <div class="mdl-card__title mdl-card--border">
+                        <h2 class="list__title mdl-card__title-text">List Title</h2>
+                    </div>
+                    <ul class="list__items mdl-list"></ul>
                 </div>
-                <ul class="list__items mdl-list"></ul>
+                <div class="delete-card-button mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-button--raised">Delete List</div>
             </div>
+
+            
         `
     }
 
     connectedCallback() {
-        const listItemsElement = this.shadowRoot.querySelector(".list__items");
+        const $listTitle = this.shadowRoot.querySelector(".list__title");
+        this.$listItemsElement = this.shadowRoot.querySelector(".list__items");
+        const $deleteCardButton = this.shadowRoot.querySelector(".delete-card-button");
+        this.$deleteItemButtons;
         this._listItems = JSON.parse(this.getAttribute('list-items'));
+        this._listTitle = this.getAttribute('list-title');
+        $listTitle.innerHTML = this._listTitle;
+        this._renderListItems();
+        $deleteCardButton.addEventListener('click', this._deleteList.bind(this));  
+    }
+
+    _renderListItems() {
+        this.$listItemsElement.innerHTML = "";
         this._listItems.forEach(item => {
             let listItem = document.createElement('li');
-            listItem.innerHTML = item.title;
-            listItem.classList.add('mdl-list__item');
-            listItemsElement.appendChild(listItem);
+            listItem.innerHTML = `
+                <span class="list__item-title-text">${item.title}</span>
+                <div data-list-title="${item.title}" class="delete-item-button 
+                        mdl-button 
+                        mdl-js-button 
+                        mdl-js-ripple-effect 
+                        mdl-button--accent 
+                        mdl-button--raised">
+                        Delete</div>
+            `;
+            listItem.classList.add('mdl-list__item', 'list__item');
+            this.$listItemsElement.appendChild(listItem); 
+            this.$deleteItemButtons = this.shadowRoot.querySelectorAll(".delete-item-button"); 
+            Array.from(this.$deleteItemButtons).forEach(button => button.addEventListener('click', this._deleteListItem.bind(this)));
         });
+    }
+
+    _deleteList() {       
+        data.lists = data.lists.filter((list) => {
+            return list.title !== this._listTitle;   
+        });
+        populateLists(data.lists);
+    }
+
+    _deleteListItem(event) {
+        console.log(event.target);
+        this._listItems = this._listItems.filter((listItem) => {
+            return listItem.title !== event.target.dataset.listTitle;
+        });
+        data.lists.find(list => list.title === this._listTitle).listItems = this._listItems;
+        this._renderListItems();
     }
 }
 
