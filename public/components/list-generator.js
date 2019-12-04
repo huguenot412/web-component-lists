@@ -156,7 +156,7 @@ class ListGenerator extends HTMLElement {
             item.value = "";
         });
         data.lists.push(newList);
-        populateLists(data.lists);
+        renderLists(data.lists);
         listNameValidation.style.opacity = 0;
         listItems.innerHTML = `
             <p>Add list items:</p>
@@ -171,7 +171,7 @@ class ListGenerator extends HTMLElement {
         let searchResults = data.lists.filter(list => {
             return list.title.toLowerCase().includes(searchQuery);
         });
-        populateLists(searchResults, true);
+        renderLists(searchResults, true);
     }
 
 

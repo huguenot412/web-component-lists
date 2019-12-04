@@ -84,9 +84,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 const listsWrapper = document.querySelector('.lists-wrapper');
 
-function populateLists(lists, isSearch) {
+function renderLists(lists, isSearch) {
     let noResultsMessage;
-    isSearch === true ? noResultsMessage = "No search results found." : noResultsMessage = "Get started by making a list.";
+    isSearch ? noResultsMessage = "No search results found." : noResultsMessage = "Get started by making a list.";
     lists.length < 1 ? listsWrapper.innerHTML = `<h2 class="no-results-message">${noResultsMessage}</h2>` : listsWrapper.innerHTML = "";
 
     lists.forEach(list => {
@@ -97,4 +97,4 @@ function populateLists(lists, isSearch) {
     });
 }
 
-populateLists(data.lists);
+renderLists(data.lists);

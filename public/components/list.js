@@ -108,7 +108,7 @@ class List extends HTMLElement {
         data.lists = data.lists.filter((list) => {
             return list.title !== this._listTitle;   
         });
-        populateLists(data.lists);
+        renderLists(data.lists);
     }
 
     _deleteListItem(event) {
