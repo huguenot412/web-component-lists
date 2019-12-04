@@ -119,7 +119,14 @@ class ListGenerator extends HTMLElement {
         this._$search = this.shadowRoot.querySelector('.search__input');
         addItemButton.addEventListener('click', this._addListItem.bind(this));
         submitListButton.addEventListener('click', this._addNewList.bind(this));    
-        this._$search.addEventListener('keyup', this._search.bind(this));   
+        this._$search.addEventListener('keyup', this._search.bind(this)); 
+        this._searchParam = "list title"; 
+        
+        this._$search.setAttribute('placeholder', `Search by ${this._searchParam}`);
+    }
+
+    attributeChangedCallback(name, oldValue, newValue) {
+
     }
 
     _addListItem() {
@@ -160,13 +167,11 @@ class ListGenerator extends HTMLElement {
     }
 
     _search() {
-        console.log(this._$search.value);
         let searchQuery = this._$search.value.toLowerCase();
         let searchResults = data.lists.filter(list => {
             return list.title.toLowerCase().includes(searchQuery);
         });
-        console.log(searchResults);
-        populateLists(searchResults);
+        populateLists(searchResults, true);
     }
 
 

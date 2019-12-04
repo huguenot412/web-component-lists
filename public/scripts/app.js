@@ -84,19 +84,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 const listsWrapper = document.querySelector('.lists-wrapper');
 
-// async function initializeData() {
-//     const response = await fetch('data.json')
-//         .then((resp) => resp.json())
-//         .then(function(data) {
-//             sessionData = data;
-//             populateLists(data);
-//         });
-// }
-
-function populateLists(lists) {
-
-    let noResultsMessage = "Oops! No results found.";
-
+function populateLists(lists, isSearch) {
+    let noResultsMessage;
+    isSearch === true ? noResultsMessage = "No search results found." : noResultsMessage = "Get started by making a list.";
     lists.length < 1 ? listsWrapper.innerHTML = `<h2 class="no-results-message">${noResultsMessage}</h2>` : listsWrapper.innerHTML = "";
 
     lists.forEach(list => {
