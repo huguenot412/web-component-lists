@@ -116,8 +116,10 @@ class ListGenerator extends HTMLElement {
     connectedCallback() {  
         const addItemButton = this.shadowRoot.querySelector('.list-generator__button--new-item');
         const submitListButton = this.shadowRoot.querySelector('.list-generator__button--submit-list');
+        this._$search = this.shadowRoot.querySelector('.search__input');
         addItemButton.addEventListener('click', this._addListItem.bind(this));
-        submitListButton.addEventListener('click', this._addNewList.bind(this));       
+        submitListButton.addEventListener('click', this._addNewList.bind(this));    
+        this._$search.addEventListener('keyup', this._search.bind(this));   
     }
 
     _addListItem() {
@@ -156,6 +158,18 @@ class ListGenerator extends HTMLElement {
             </div>   
         `
     }
+
+    _search() {
+        console.log(this._$search.value);
+        let searchQuery = this._$search.value.toLowerCase();
+        let searchResults = data.lists.filter(list => {
+            return list.title.toLowerCase().includes(searchQuery);
+        });
+        console.log(searchResults);
+        populateLists(searchResults);
+    }
+
+
 }
 
 customElements.define('snow-list-generator', ListGenerator);

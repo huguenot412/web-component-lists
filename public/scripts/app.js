@@ -95,7 +95,7 @@ const listsWrapper = document.querySelector('.lists-wrapper');
 
 function populateLists(lists) {
 
-    let noResultsMessage = "Get started by adding a list.";
+    let noResultsMessage = "Oops! No results found.";
 
     lists.length < 1 ? listsWrapper.innerHTML = `<h2 class="no-results-message">${noResultsMessage}</h2>` : listsWrapper.innerHTML = "";
 
