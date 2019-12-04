@@ -97,7 +97,7 @@ function populateLists(lists) {
 
     let noResultsMessage = "Get started by adding a list.";
 
-    lists.length < 1 ? listsWrapper.innerHTML = `<h2>${noResultsMessage}</h2>` : listsWrapper.innerHTML = "";
+    lists.length < 1 ? listsWrapper.innerHTML = `<h2 class="no-results-message">${noResultsMessage}</h2>` : listsWrapper.innerHTML = "";
 
     lists.forEach(list => {
         const newList = document.createElement('snow-list');

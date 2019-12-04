@@ -11,12 +11,12 @@ class ListGenerator extends HTMLElement {
                 }
 
                 .list-generator input {
-                    color: rgb(63,81,181);
+                    color: var(--primary);
                 }
 
                 input:focus {
                     outline-color: transparent;
-                    color: rgb(255,64,129);
+                    color: var(--accent);
                 }
 
                 input::placeholder {
@@ -53,7 +53,7 @@ class ListGenerator extends HTMLElement {
                     opacity: 0;
                     bottom: -2px;
                     left: 0;
-                    color: rgb(255,64,129);
+                    color: var(--accent);
                     transition: .2s;
                     padding: 6px 0 0 0;
                 }
@@ -74,12 +74,12 @@ class ListGenerator extends HTMLElement {
                     position: absolute;
                     bottom: 2px;
                     right: 2px;
-                    color: rgb(63,81,181);
+                    color: var(--primary);
                     transition: .2s;
                 }
 
                 .list-generator__search:hover .search-icon {
-                    color: rgb(255,64,129);
+                    color: var(--accent);
                 }
 
             </style>

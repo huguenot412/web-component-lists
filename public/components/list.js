@@ -35,6 +35,30 @@ class List extends HTMLElement {
                     margin-right: 20px;
                 }
 
+                .delete-item-button {
+                    color: var(--primary);
+                    opacity: 0;
+                    transition: .2s;
+                }
+
+                .delete-item-button:hover {
+                    color: var(--accent);
+                }
+
+                .list__item:hover .delete-item-button,
+                .list:hover .delete-card-button {
+                    opacity: 1;
+                }
+
+                .delete-card-button {
+                    opacity: 0;
+                    transition: .2s;
+                }
+
+                .mdl-button.delete-card-button:hover {
+                    background-color: var(--accent);
+                }
+
             </style>
 
             <div class="list mdl-shadow--2dp">
@@ -69,13 +93,9 @@ class List extends HTMLElement {
             let listItem = document.createElement('li');
             listItem.innerHTML = `
                 <span class="list__item-title-text">${item.title}</span>
-                <div data-list-title="${item.title}" class="delete-item-button 
-                        mdl-button 
-                        mdl-js-button 
-                        mdl-js-ripple-effect 
-                        mdl-button--accent 
-                        mdl-button--raised">
-                        Delete</div>
+                <i class="material-icons delete-item-button" data-list-title="${item.title}">
+                delete_forever
+                </i>
             `;
             listItem.classList.add('mdl-list__item', 'list__item');
             this.$listItemsElement.appendChild(listItem); 

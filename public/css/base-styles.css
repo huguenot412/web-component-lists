@@ -2,6 +2,11 @@
     box-sizing: border-box;
 }
 
+:root {
+    --primary: rgb(63,81,181);
+    --accent: rgb(255,64,129);
+}
+
 .page-content {
     display: grid;
     grid-template-columns: 300px auto;
@@ -20,6 +25,10 @@
     grid-column-gap: 20px;
     grid-row-gap: 20px;
     align-items: stretch;
+}
+
+.no-results-message {
+    grid-column: 1 / -1;
 }
 
 @media screen and (max-width: 700px) {
